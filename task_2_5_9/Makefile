@@ -1,16 +1,16 @@
 # Primary compiler
-CC := g++
+CC := gcc
 
 SRCDIR := src
 INCLUDEDIR = include
 BUILDDIR := build
 TARGETDIR := bin
 
-SRCEXT := cpp
+SRCEXT := c
 SOURCES := $(shell find $(SRCDIR) -type f -name \*.$(SRCEXT) ! -name main.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 TARGET := $(TARGETDIR)/main
-CFLAGS := -g -Wall -std=c++17
+CFLAGS := -g -Wall
 LIB :=
 INC := -I $(INCLUDEDIR)
 
