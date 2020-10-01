@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <bitset>
 
 
 // Эта структура описывает формат заголовока ELF файла
@@ -34,6 +33,7 @@ std::uintptr_t entry_point(const char *name)
     elf_file.seekg(E_ENTRY_POSITION);
     char e_entry_buffer[E_ENTRY_SIZE];
     elf_file.read(e_entry_buffer, E_ENTRY_SIZE);
+    elf_file.close();
 
     return *reinterpret_cast<std::uint64_t*>(e_entry_buffer);
 }
